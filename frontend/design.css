@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    --screen-width: 100vw;
+    --screen-height: 100vh;
+    --bgcolor: rgb(3,3,3);
+    --fgcolor: rgba(42, 42, 40, 0.35);
+    --glass-color: rgba(92, 97, 41, 0.45);
+    --shadow-color: rgba(150, 158, 36, 0.85);
+    --unfocused: rgba(175, 175, 175, 0.55);
+    --prim-color: #c5cf00;
+    --sun: #f6ff00;
+    --prim-text-color: #e8e8e8;
+    --sec-text-color: #d1cc9a;
+    color: var(--prim-text-color);
+    font-family: 'Josefin Sans';
+    transition: .5s;
+
+}
+
+::-webkit-scrollbar{ display: none; }
+
+body{
+    min-width: var(--screen-width);
+    min-height: var(--screen-height);
+    background: var(--bgcolor);
+
+}
+
+.container{
+    position: absolute;
+    top: -5%;
+    left: calc(50% - 80px);
+    height: var(--screen-height);
+    width: calc(var(--screen-width) / 2);
+    background:transparent;
+    padding: 50px 50px;
+    display: grid;
+}
+
+.container > *{
+    grid-column-start: 1;
+    grid-row-start: 1;
+}
+
+.form_box, .bgBox{
+    position: absolute;
+    background: var(--bgcolor);
+    height: 65%;
+    width: 82%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 50px;
+    /* box-shadow: -3px 3px 10px rgba(165, 185, 32, 0.35); */
+    border: 3px solid rgba(245, 243, 243, 0.78);
+    /* animation: shadowWarp duration timing-function delay iteration-count direction fill-mode; */
+    overflow-x: hidden;
+    overflow-y: scroll;
+    z-index: 4 !important;
+    padding: 60px;
+    font-size: calc(var(--screen-width) / 58);
+    line-height: calc(var(--screen-width) / 38);
+    text-align: justify;
+}
+
+.form_box::before{
+    content: '';
+    position: fixed;
+    top: -200px;
+    left: -10px;
+    height: 350%;
+    width: 50%;
+    transform: rotateZ(49deg) translate(0%,-4%);
+    background: linear-gradient(70deg, var(--glass-color) 0%, transparent 65%, transparent 100%);
+    z-index: -2 !important;
+}
+
+.form_box::after{
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    border-radius: 100%;
+    background-color: var(--sun);
+    height: 17px;
+    width: 17px;
+    box-shadow: 0 0 90px 5px var(--sun);
+}
+
+
+@media (max-width: 1200px) {
+    .container{
+        width: var(--screen-width);
+    }
+}
+
+
+.bgBox{
+    border-color: var(--prim-color);
+    transform: translate(calc(-45%),calc(-45% - 5px));
+    z-index: -1 !important;
+    background: var(--bgcolor);
+    z-index: 1;
+    /* background: var(--glass-color); */
+}
+
+.formInput{
+    display: flex;
+    flex-direction: column;
+}
+
+.valInput{
+    height: 40px;
+    width: 100%;
+    display: grid;
+    margin-top: 50px;
+}
+
+
+.valInput:nth-child(1){
+    margin-top: 10px;
+}
+
+.valInput > *{
+    grid-row-start: 1;
+    grid-column-start: 1;
+}
+
+.valInput:nth-child(3) {
+    height: 80px;
+    margin-top: 70px;
+}
+
+button{
+    height: 35px;
+}
+
+input{
+    background: transparent;
+    border: transparent;
+    padding-left: 13px;
+    font-size: calc(var(--screen-width) / 60);
+    border-bottom: 2px solid var(--fgcolor);
+}
+
+input:hover, input:focus{
+    outline: none;
+    padding-left: 13px;
+    border-bottom: 2px solid var(--prim-text-color);
+}
+
+input:focus{
+    border-bottom: 2px solid var(--prim-color);
+}
+
+.placeholders{
+    position: relative;
+    background: transparent;
+    margin-left: 10px;
+    top: 5%;
+    z-index: -1 !important;
+    color: var(--unfocused);
+
+}
+
+.submitBtn{
+    background: var(--prim-color);
+    color: var(--bgcolor);
+    font-weight: bolder;
+    font-size: calc(var(--screen-width) / 70);
+    width: 25%;
+    border: 3px solid var(--prim-color);
+    border-radius: 50px;
+    cursor: pointer;
+    height: 40px;
+}
+
+.submitBtn:hover{
+    box-shadow: 0 0 6px var(--shadow-color);
+}
+
+
+.dividerYellow{
+    position: absolute;
+    right: 0;
+    width: 15vw;
+    height: 100vh;
+    border-left: 3px solid var(--prim-color);
+    height: 100vh;
+    z-index: -3 !important;
+}
